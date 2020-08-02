@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../static/js/video.js"></script>
+    <title></title>
+</head>
+<body >
+    <br>
+    <div style="margin-left:50px; margin-top:100px; " >
+        <div id="container_video" style="width:700px;height:400px;margin-top:50px;float:left; position:absolute "></div>
+        <div style="width:400px;height:400px;float:left;margin-top:50px;margin-left:750px; position:relative;border-style:solid;border-width:1px;">
+             <video id="video_video" controls="controls" style="width:400px;height:400px;background:#000000;left=50%;"></video>
+        </div>
+        <div  style = "position: absolute; bottom:0; left:50%; " >
+                <input   type="file" name="file" id="filePicker" />
+            <br>
+           <button style = " margin-left:200px; " id = "submit" disabled = "disabled"  type="submit">确定</button>
+        </div>
+        
+    </div>
+</body>
+{% if messages %}
+    <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+    </script>
+    {% endif %}
+</html>

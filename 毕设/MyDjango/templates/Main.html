@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <style>
+         .Type {
+               float: left;
+               width: 300px;
+               height:800px;
+         }
+
+         #content {
+               float: left;
+               width:1250px;
+               height:800px;
+
+         }
+         body{
+               background:url(../static/img/6.jpg) top left;
+               background-size:100%;
+         }
+    </style>
+    <script src="../static/js/jquery.js"></script>
+    <script type="text/javascript" src="../static/jqplot/jquery.js"></script>
+    <script type="text/javascript" src="../static/jqplot/highcharts.js"></script>
+</head>
+<hr/>
+<body >
+     <P style = "font-size:75px;  color:#191970" align="center">
+            Welcome
+     </P>
+     <div style="margin-left:50px;margin-right:50px">
+         <div class="DetectType"  >
+            <ul class="Type" style="border-style:solid;border-width:1px;">
+                <li class="current" data-id="Video" style = "font-size:40px;color:#FF0000;margin-left:50px;margin-top:150px">视频检测</li>
+                <hr style="margin-top:200px;">
+                <li data-id="Camera" style = "font-size:40px;color:#FF0000; margin-left:50px;margin-top:150px;">摄像头检测</li>
+            </ul>
+            <div id="content" style="border-style:solid;border-width:1px;margin-top:16px"></div>
+         </div>
+     </div>
+
+     <script>
+
+        $(function() {
+            $(".Type").on("click", "li", function() {
+                var sId = $(this).data("id"); //获取data-id的值
+                window.location.hash = sId; //设置锚点
+                loadInner(sId);
+            });
+
+            function loadInner(sId) {
+                var sId = window.location.hash;
+                var pathn, i;
+                switch(sId) {
+                    case "#Video":
+                        pathn = "video";
+                        i = 0;
+                        break;　　　　　　　
+                    case "#Camera":
+                        pathn = "camera";
+                        i = 1;
+                        break;　　　　　　
+                    default:
+                        pathn = "video";
+                        i = 0;
+                        break;
+                }
+                    $("#content").load(pathn); //加载相对应的内容
+                    $(".Type li").eq(i).addClass("current").siblings().removeClass("current"); //当前列表高亮
+            }
+            var sId = window.location.hash;
+            loadInner(sId);
+        });
+    </script>
+    {% if messages %}
+    <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+    </script>
+    {% endif %}
+</body>
+</html>

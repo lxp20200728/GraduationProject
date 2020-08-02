@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MainUI</title>
+</head>
+<body>
+    {% if messages %}
+    <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+    </script>
+    {% endif %}
+    <script >
+            function show()
+            {
+                photoPath = document.getElementById('filePicker').value;
+                index= photoPath.lastIndexOf(".");
+                ext = photoPath.substr(index+1);
+                if(ext == "jpg"){
+                    alert(photoPath)
+                    img = document.getElementById("preview");
+                    img.src = photoPath;
+                }
+                button = document.getElementById("submit");
+                button.removeAttribute("disabled");
+            }
+    </script>
+    <P style = "font-size:50px" align="center">
+        Welcome
+    </P>
+
+    <div style = "float:left;">
+        <img id = "preview" style = "margin-left:150px" src="http://file.elecfans.com/web1/M00/63/63/pIYBAFuVw_eAdXENAAX-vAvPctg224.png" alt=" Original Graph" width="500" height="400">
+    </div>
+    <div style = "float:left;">
+        <img id = "test" style = "margin-left:150px" src="file:///C:/Users/Admin/Desktop/img1.jpg" alt=" Original Graph" width="500" height="400">
+    </div>
+    <br />
+    <input type="file" name="file" id="filePicker" onchange="show()"/>
+    <br>
+    <form name="input"  method="POST" action="getdarknet">
+       <input style = " margin-left:150px; " id = "submit" disabled = "disabled"  type="submit" value="确定"  >
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+    {% if messages %}
+    <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+    </script>
+    {% endif %}
+    <div id = "form" align="center" style="margin-top:250px;">
+    <p style = "font-size:30px" align="center"> 请注册您的个人账号 </p>
+    <form  name="input"  method="POST" action="register">
+     Account : <input style = "font-size:20px; margin-left:7px;" id = "account" type="text" placeholder="账号" name="account"><br>
+        <br>
+    Password : <input style = "font-size:20px" id = "password" type="password" placeholder="密码" name="password">
+        <br> <br>
+    Confirm : <input style = "font-size:20px;margin-left: 10px" id = "confirm" type="password" placeholder="确认密码" name="confirm">
+        <br> <br>
+    <input style = " margin-left:150px; " type="submit" value="注册"  >
+        <br>
+    </form>
+    <br>
+</div>
+</body>
+</html>

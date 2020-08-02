@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyUI</title>
+</head>
+<body>
+<p style = "text-align:center;font-size:50px"> 中联垃圾桶容量识别</p>
+<div id = "img" style = "float:left;" >
+    <img style = "margin-left:150px" src="../static/img/3.jpg" alt=" Loss Photo" width="800" height="600">
+</div>
+<div id = "form" style = "margin-left: 150px; margin-top:150px;float:left;">
+    <p style = "margin-left: 140px;font-size:25px" > 请登录 </p>
+    <form  name="input"  method="POST" action="login">
+     Account : <input style = "font-size:20px; margin-left:7px;" id = "account" type="text" placeholder="请输入您的账号" name="account"><br>
+        <br>
+    Password : <input style = "font-size:20px" id = "password" type="password" placeholder="请输入您的密码" name="password">
+        <br> <br>
+    <div style="margin-left: 50px">
+		<label><input type="radio" name="user" value="users" checked="checked">普通用户</label>
+		<label><input type="radio" name="user" value="managers">管理员</label>
+	</div>
+    <br>
+    <input style = " margin-left:150px; " type="submit" value="Submit"  >
+        <br>
+    </form>
+    <br>
+    <a href="reg" style = "font-size:15px;margin-left:75px">没有账号？点击注册一个吧！</a>
+    <br><br><br><br><br><br>
+    <a href="join" style = "font-size:15px;margin-left:375px">加入我们！</a>
+</div>
+
+{% if messages %}
+<script>
+        {% for msg in messages %}
+            alert('{{ msg.message }}');
+        {% endfor %}
+</script>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Join</title>
+</head>
+<body>
+    {% if messages %}
+    <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+    </script>
+    {% endif %}
+    <div id = "form" align="center" style="margin-top:250px;">
+    <p style = "font-size:30px" align="center"> 欢迎您的加入 </p>
+    <form  name="input"  method="POST" action="join_us">
+    Invitation Code：<input style = "font-size:20px; margin-left:7px;" id = "invitation" type="text" placeholder="邀请码" name="invitation"><br>
+        <br>
+    Account : <input style = "font-size:20px; margin-left:7px;" id = "account" type="text" placeholder="账号" name="account"><br>
+        <br>
+    Password : <input style = "font-size:20px" id = "password" type="password" placeholder="密码" name="password">
+        <br> <br>
+    Confirm : <input style = "font-size:20px;margin-left: 10px" id = "confirm" type="password" placeholder="确认密码" name="confirm">
+        <br> <br>
+    <input style = " margin-left:150px; " type="submit" value="Join"  >
+        <br>
+    </form>
+    <br>
+</div>
+</body>
+</html>
